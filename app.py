@@ -2,7 +2,7 @@
 
 # Standard library imports
 import eventlet
-eventlet.monkey_patch()
+eventlet.monkey_patch(dns=False)
 import asyncio
 import json
 import threading
