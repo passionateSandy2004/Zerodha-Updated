@@ -1,6 +1,8 @@
 # backend/server.py
 
 # Standard library imports
+from gevent import monkey
+monkey.patch_all()
 import asyncio
 import json
 import threading
