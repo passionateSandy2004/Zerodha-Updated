@@ -1,8 +1,6 @@
 # backend/server.py
 
 # Standard library imports
-import eventlet
-eventlet.monkey_patch(dns=False)
 import asyncio
 import json
 import threading
@@ -36,7 +34,7 @@ SUPABASE_SERVICE_ROLE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdX
 
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
-socketio = SocketIO(app, cors_allowed_origins="*", async_mode="eventlet")
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode="gevent")
 
 # Use hardcoded credentials directly
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
